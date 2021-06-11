@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/bwmarrin/discordgo"
-	"github.com/justincremer/discord-bot/pkg/commands"
-	"github.com/justincremer/discord-bot/pkg/logger"
+	"github.com/justincremer/chimken-bot/pkg/commands"
+	"github.com/justincremer/chimken-bot/pkg/logger"
 )
 
 var (

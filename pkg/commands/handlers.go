@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/bwmarrin/discordgo"
-	"github.com/justincremer/discord-bot/pkg/logger"
+	"github.com/justincremer/chimken-bot/pkg/logger"
 	"strings"
 )
 

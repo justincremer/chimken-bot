@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"github.com/bwmarrin/discordgo"
-	"github.com/justincremer/discord-bot/pkg/logger"
+	"github.com/justincremer/chimken-bot/pkg/logger"
 	"io/ioutil"
 	"net/http"
 	"strconv"
