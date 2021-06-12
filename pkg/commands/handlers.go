@@ -27,12 +27,20 @@ func HandleHelpCommand(s *discordgo.Session, m *discordgo.Message) {
 	s.ChannelMessageSend(m.ChannelID, message)
 }
 
-func HandleBirbCommand(s *discordgo.Session, m *discordgo.Message) {
-	s.ChannelMessageSend(m.ChannelID, "birbie!")
+func HandleSunnyCommand(s *discordgo.Session, m *discordgo.Message) {
+	s.ChannelMessageSend(m.ChannelID, "Sunnu nation must rise\n┻━┻ ︵ ＼(’0’)/／ ︵ ┻━┻")
 }
 
-func HandlePaulCommand(s *discordgo.Session, m *discordgo.Message) {
-	s.ChannelMessageSend(m.ChannelID, "paul is paulgers")
+func HandleLianaCommand(s *discordgo.Session, m *discordgo.Message) {
+	s.ChannelMessageSend(m.ChannelID, "WHEN\nWENH\nWHEN YOU\nWHEN OU\nWHEN\nwHEN YOU")
+}
+
+func HandleAngelaCommand(s *discordgo.Session, m *discordgo.Message) {
+	s.ChannelMessageSend(m.ChannelID, "S tier troglodite")
+}
+
+func HandleJosephCommand(s *discordgo.Session, m *discordgo.Message) {
+	s.ChannelMessageSend(m.ChannelID, "Da bling")
 }
 
 func HandleUnknownCommand(s *discordgo.Session, m *discordgo.Message, msg string) {
