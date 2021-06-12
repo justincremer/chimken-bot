@@ -22,9 +22,26 @@ func HandleInfoCommand(s *discordgo.Session, m *discordgo.Message, t0 time.Time)
 }
 
 func HandleHelpCommand(s *discordgo.Session, m *discordgo.Message) {
-	message := fmt.Sprintf("```txt%s```", strings.Repeat("\n%s : %s", 5))
-	message = fmt.Sprintf(message, "info", "listen to chimken bot talk about her life", "help", "where you are now", "brib", "birbie:)", "paul", "who is sweet potato", "poll", "work the polls")
+	message := fmt.Sprintf("```txt%s```", strings.Repeat("\n%s : %s", 8))
+	message = fmt.Sprintf(message,
+		"info", "listen to chimken bot talk about her life",
+		"help", "where you are now",
+		"loaf", "whois loaf",
+		"paul", "whois paul",
+		"sunny", "whois sunny",
+		"liana", "whois liana",
+		"joseph", "whois joseph",
+		"poll", "work the polls")
+
 	s.ChannelMessageSend(m.ChannelID, message)
+}
+
+func HandleLoafCommand(s *discordgo.Session, m *discordgo.Message) {
+	s.ChannelMessageSend(m.ChannelID, "Toasty!")
+}
+
+func HandlePaulCommand(s *discordgo.Session, m *discordgo.Message) {
+	s.ChannelMessageSend(m.ChannelID, "Paul is paulgers")
 }
 
 func HandleSunnyCommand(s *discordgo.Session, m *discordgo.Message) {

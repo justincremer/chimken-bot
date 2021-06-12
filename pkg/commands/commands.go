@@ -18,10 +18,18 @@ func ExecuteCommand(s *discordgo.Session, m *discordgo.Message, t0 time.Time) {
 		HandleInfoCommand(s, m, t0)
 	case "help":
 		HandleHelpCommand(s, m)
-	case "birb":
-		HandleBirbCommand(s, m)
+	case "loaf":
+		HandleLoafCommand(s, m)
 	case "paul":
 		HandlePaulCommand(s, m)
+	case "sunny":
+		HandleSunnyCommand(s, m)
+	case "liana":
+		HandleLianaCommand(s, m)
+	case "angela":
+		HandleAngelaCommand(s, m)
+	case "joseph":
+		HandleJosephCommand(s, m)
 	case "strawpoll":
 		titleBegin := strings.Index(m.Content, "{")
 		titleEnd := strings.Index(m.Content, "}")
