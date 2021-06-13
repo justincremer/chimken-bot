@@ -19,12 +19,13 @@ var messageTable = map[string][]string{
 	},
 	"justin": {
 		"Girl with basket of fruit",
-		"Seeing little ghosts everywhere",
+		"Seeing lil ghosts everywhere",
 		"Ricochet the pain in a bottle of rum",
 	},
 	"liana": {
 		"WHEN\nWENH\nWHEN YOU\nWHEN OU\nWHEN\nwHEN YOU",
 		"BUNBUN",
+		"If someone plays Hello World I will cry ",
 	},
 	"sunny": {
 		"Sunnu nation must rise!",
