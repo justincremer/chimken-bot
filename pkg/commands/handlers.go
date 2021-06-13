@@ -64,8 +64,9 @@ func HandleInfoCommand(s *discordgo.Session, m *discordgo.Message, t0 time.Time)
 func HandleHelpCommand(s *discordgo.Session, m *discordgo.Message) {
 	title := "ChimkenBot Help Panel"
 	message := "```txt\n%s\n%s\n%s```"
-	subMessage := strings.Repeat("\n%s :: %s", len(messageTable)+2)
-	subMessage = fmt.Sprintf(message,
+
+	subMessage := strings.Repeat("%s :: %s\n", 9)
+	subMessage = fmt.Sprintf(subMessage,
 		"help  ", "List of commands",
 		"info  ", "How is chimken",
 		"sophie", "Who is sophie",
@@ -81,7 +82,7 @@ func HandleHelpCommand(s *discordgo.Session, m *discordgo.Message) {
 
 func HandlePesonalMessage(s *discordgo.Session, m *discordgo.Message, name string) {
 	messages := messageTable[name]
-	i := rand.Intn(len(messages) - 1)
+	i := rand.Intn(len(messages))
 	s.ChannelMessageSend(m.ChannelID, messages[i])
 }
 
