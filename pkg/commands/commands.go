@@ -19,17 +19,19 @@ func ExecuteCommand(s *discordgo.Session, m *discordgo.Message, t0 time.Time) {
 	case "help":
 		HandleHelpCommand(s, m)
 	case "loaf":
-		HandleLoafCommand(s, m)
-	case "paul":
-		HandlePaulCommand(s, m)
-	case "sunny":
-		HandleSunnyCommand(s, m)
+		HandlePesonalMessage(s, m, msg)
+	case "xiuxiu":
+		HandlePesonalMessage(s, m, msg)
 	case "liana":
-		HandleLianaCommand(s, m)
+		HandlePesonalMessage(s, m, msg)
+	case "sunny":
+		HandlePesonalMessage(s, m, msg)
 	case "angela":
-		HandleAngelaCommand(s, m)
+		HandlePesonalMessage(s, m, msg)
+	case "paul":
+		HandlePesonalMessage(s, m, msg)
 	case "joseph":
-		HandleJosephCommand(s, m)
+		HandlePesonalMessage(s, m, msg)
 	// case "strawpoll":
 	// 	titleBegin := strings.Index(m.Content, "{")
 	// 	titleEnd := strings.Index(m.Content, "}")
