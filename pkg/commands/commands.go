@@ -18,9 +18,9 @@ func ExecuteCommand(s *discordgo.Session, m *discordgo.Message, t0 time.Time) {
 		HandleInfoCommand(s, m, t0)
 	case "help":
 		HandleHelpCommand(s, m)
-	case "loaf":
+	case "sophie":
 		HandlePesonalMessage(s, m, msg)
-	case "xiuxiu":
+	case "justin":
 		HandlePesonalMessage(s, m, msg)
 	case "liana":
 		HandlePesonalMessage(s, m, msg)
