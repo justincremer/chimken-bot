@@ -21,6 +21,8 @@ var messageTable = map[string][]string{
 		"Girl with basket of fruit",
 		"Seeing lil ghosts everywhere",
 		"Ricochet the pain in a bottle of rum",
+		"Eating strawberries with you",
+		"See you later space cowboy",
 	},
 	"liana": {
 		"WHEN\nWENH\nWHEN YOU\nWHEN OU\nWHEN\nwHEN YOU",
