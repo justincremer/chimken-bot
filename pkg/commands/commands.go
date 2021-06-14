@@ -32,6 +32,10 @@ func ExecuteCommand(s *discordgo.Session, m *discordgo.Message, t0 time.Time) {
 		HandlePesonalMessage(s, m, msg)
 	case "joseph":
 		HandlePesonalMessage(s, m, msg)
+	case "siah":
+		HandlePesonalMessage(s, m, msg)
+	case "fluzz":
+		HandlePesonalMessage(s, m, msg)
 	// case "strawpoll":
 	// 	titleBegin := strings.Index(m.Content, "{")
 	// 	titleEnd := strings.Index(m.Content, "}")

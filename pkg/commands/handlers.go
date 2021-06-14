@@ -26,6 +26,7 @@ var messageTable = map[string][]string{
 		"WHEN\nWENH\nWHEN YOU\nWHEN OU\nWHEN\nwHEN YOU",
 		"BUNBUN",
 		"If someone plays Hello World I will cry ",
+		"abannanana.. seaanemanemane.. eminemineminem..",
 	},
 	"sunny": {
 		"Sunnu nation must rise!",
@@ -47,6 +48,26 @@ var messageTable = map[string][]string{
 		"Sunday is Jesus' day to game",
 		"I promise I'm not a barn owl",
 	},
+	"siah": {
+		"SUNNU YOU NEED TO CALM DOWN NOW.",
+		"Welcome galaxy, noice to have you join.",
+		"Fun fact : siah loves to redeem owa owa channel points.",
+		"SUNNU STOP FLIPPING TABLES!",
+		"Fun fact : siah likes to make unofficial lanaplays0 memes in his spare time.",
+		"Hello. siah at your service, how can i help you?",
+		"yee to the haw.",
+		"YEEEEEHAAWW!!! throws hat majestically into the air whilst the sunsets in the background.",
+		"Fun fact : everything is bigger in texas.",
+		"don’t you dare mess with texas. i know where you live…",
+	},
+	"fluzz": {
+		"Just add Arc<Mutex<_>>",
+		"Controls chutes and shoes alike",
+	},
+	"kreiker": {
+		"Sunday is Jesus' day to game",
+		"My pride is immeasurable, and my day is much better",
+	},
 }
 
 func HandleInfoCommand(s *discordgo.Session, m *discordgo.Message, t0 time.Time) {
@@ -65,7 +86,7 @@ func HandleHelpCommand(s *discordgo.Session, m *discordgo.Message) {
 	title := "ChimkenBot Help Panel"
 	message := "```txt\n%s\n%s\n%s```"
 
-	subMessage := strings.Repeat("%s :: %s\n", 9)
+	subMessage := strings.Repeat("%s :: %s\n", len(messageTable)+2)
 	subMessage = fmt.Sprintf(subMessage,
 		"help  ", "List of commands",
 		"info  ", "How is chimken",
@@ -75,7 +96,10 @@ func HandleHelpCommand(s *discordgo.Session, m *discordgo.Message) {
 		"sunny ", "Who is sunny",
 		"angela", "Who is angela",
 		"paul  ", "Who is paul",
-		"joseph", "Who is joseph")
+		"joseph", "Who is joseph",
+		"siah", "Who is siah",
+		"fluzz", "Who is fluzz",
+		"kreiker", "Who is kreiker")
 	message = fmt.Sprintf(message, title, strings.Repeat("-", len(title)), subMessage)
 	s.ChannelMessageSend(m.ChannelID, message)
 }
