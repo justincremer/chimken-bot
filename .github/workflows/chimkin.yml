@@ -1,0 +1,21 @@
+name: Chimkin
+on:
+    push:
+        branches:
+            - main
+        paths:
+            - pkg/**
+            - cmd/**
+jobs:
+    build:
+        name: Deploy
+        runs-on: self-hosted
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            - name: Build
+              run: go build -o bin/chimkin cmd/main.go
+            - name: Run
+              with:
+                credentials: ${{ secrets.TOKEN }}
+              run: bin/chimkin token.secret
