@@ -77,7 +77,7 @@ func HandleInfoCommand(s *discordgo.Session, m *discordgo.Message, t0 time.Time)
 	channel, err := s.Channel(m.ChannelID)
 	logger.Must("Unknown channel error: ", err)
 
-	title := "ChimkenBot Info Panel"
+	title := "Info Panel"
 	channelName := channel.Name
 	message := "```txt\n%s\n%s\n%-16s%-20s\n%-16s%-20s\n%-16s%-20s```"
 	message = fmt.Sprintf(message, title, strings.Repeat("-", len(title)), "ChannelID", m.ChannelID, "Channel Name", channelName, "Uptime", (t1.Sub(t0).String()))
@@ -85,7 +85,7 @@ func HandleInfoCommand(s *discordgo.Session, m *discordgo.Message, t0 time.Time)
 }
 
 func HandleHelpCommand(s *discordgo.Session, m *discordgo.Message) {
-	title := "ChimkenBot Help Panel"
+	title := "Help Panel"
 	message := "```txt\n%s\n%s\n%s```"
 
 	subMessage := strings.Repeat("%s :: %s\n", len(messageTable)+2)
