@@ -8,7 +8,8 @@ import (
 )
 
 func ExecuteCommand(s *discordgo.Session, m *discordgo.Message, t0 time.Time) {
-	args := strings.Split(strings.TrimSpace(m.Content[1:]), " ")
+	full := m.Content[1:]
+	args := strings.Split(strings.TrimSpace(full), " ")
 	cmd := args[0]
 	// if len(msg) > 2 {
 	// 	msg = strings.Split(strings.Split(m.Content, " ")[0], "!")[1]
@@ -43,10 +44,10 @@ func ExecuteCommand(s *discordgo.Session, m *discordgo.Message, t0 time.Time) {
 		case "kreiker":
 			HandlePesonalMessage(s, m, name)
 		default:
-			HandleUnknownCommand(s, m, cmd)
+			HandleUnknownCommand(s, m, full)
 		}
 	default:
-		HandleUnknownCommand(s, m, cmd)
+		HandleUnknownCommand(s, m, full)
 	}
 }
 
