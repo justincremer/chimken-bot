@@ -22,6 +22,7 @@ var (
 func init() {
 	Token = os.Args[1]
 	t0 = time.Now()
+
 }
 
 func main() {
