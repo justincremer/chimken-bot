@@ -17,5 +17,5 @@ jobs:
               run: go build -o bin/chimkin cmd/main.go
             - name: Run
               with:
-                credentials: ${{ secrets.TOKEN }}
-              run: bin/chimkin token.secret
+                token: ${{ secrets.TOKEN }}
+              run: bin/chimkin $token
