@@ -88,20 +88,12 @@ func HandleHelpCommand(s *discordgo.Session, m *discordgo.Message) {
 	title := "Help Panel"
 	message := "```txt\n%s\n%s\n%s```"
 
-	subMessage := strings.Repeat("%s :: %s\n", len(messageTable)+2)
+	subMessage := strings.Repeat("%s :: %s\n", 3)
 	subMessage = fmt.Sprintf(subMessage,
 		"help  ", "List of commands",
-		"info  ", "How is chimken",
-		"sophie", "Who is sophie",
-		"justin", "Who is justin",
-		"liana ", "Who is liana",
-		"sunny ", "Who is sunny",
-		"angela", "Who is angela",
-		"paul  ", "Who is paul",
-		"joseph", "Who is joseph",
-		"siah", "Who is siah",
-		"fluzz", "Who is fluzz",
-		"kreiker", "Who is kreiker")
+		"info  ", "How is chimkin",
+		"whois ", "Doxes the person who's name you provide [ sophie, justin, liana, sunny, angela, paul, joseph, siah, fluzz, kreiker]",
+	)
 	message = fmt.Sprintf(message, title, strings.Repeat("-", len(title)), subMessage)
 	s.ChannelMessageSend(m.ChannelID, message)
 }
