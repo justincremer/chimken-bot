@@ -16,6 +16,6 @@ jobs:
             - name: Build
               run: go build -o bin/chimkin cmd/main.go
             - name: Run
-              with:
+              env:
                 token: ${{ secrets.TOKEN }}
-              run: bin/chimkin $token
+              run: bin/chimkin "$token"
