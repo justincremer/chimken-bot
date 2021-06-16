@@ -42,6 +42,8 @@ func ExecuteCommand(s *discordgo.Session, m *discordgo.Message, t0 time.Time) {
 			HandlePesonalMessage(s, m, name)
 		case "kreiker":
 			HandlePesonalMessage(s, m, name)
+		default:
+			HandleUnknownCommand(s, m, cmd)
 		}
 	default:
 		HandleUnknownCommand(s, m, cmd)
