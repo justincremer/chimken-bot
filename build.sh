@@ -1,2 +1,2 @@
 #!/bin/bash
-go build -o bin/chimken-bot cmd/main.go
+go build -o bin/chimkin cmd/main.go
