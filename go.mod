@@ -1,4 +1,4 @@
-module github.com/justincremer/chimken-bot
+module github.com/justincremer/chimkin-bot
 
 go 1.16
 

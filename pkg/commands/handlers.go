@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	"github.com/bwmarrin/discordgo"
-	"github.com/justincremer/chimken-bot/pkg/logger"
+	"github.com/justincremer/chimkin-bot/pkg/logger"
 )
 
 var messageTable = map[string][]string{
