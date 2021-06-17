@@ -9,6 +9,7 @@ import (
 
 	"github.com/bwmarrin/discordgo"
 	"github.com/justincremer/chimkin-bot/pkg/commands"
+	"github.com/justincremer/chimkin-bot/pkg/currency"
 	"github.com/justincremer/chimkin-bot/pkg/logger"
 )
 
@@ -16,13 +17,14 @@ var (
 	Token string
 	BotID string
 	t0    time.Time
+	bank  *currency.Bank
 	err   error
 )
 
 func init() {
 	Token = os.Args[1]
 	t0 = time.Now()
-
+	bank = currency.New()
 }
 
 func main() {
@@ -63,7 +65,7 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 
 	if m.Content[0] == '!' && strings.Count(m.Content, "!") < 2 {
-		commands.ExecuteCommand(s, m.Message, t0)
+		commands.ExecuteCommand(s, m.Message, t0, bank)
 		return
 	}
 }

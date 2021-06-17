@@ -5,22 +5,20 @@ import (
 )
 
 type Account struct {
-	ID      string
 	User    string
 	Balance int
 }
 
 func NewAccount(user string) *Account {
 	return &Account{
-		ID:      "",
 		User:    user,
-		Balance: 0,
+		Balance: 100,
 	}
 }
 
 func (a *Account) Update(amount int) error {
 	if amount < 0 && -amount > a.Balance {
-		return fmt.Errorf("Cannot dedecut $%s from account with $%s", amount, a.Balance)
+		return fmt.Errorf("Cannot dedecut $%d from account with $%d", amount, a.Balance)
 	}
 	a.Balance += amount
 	return nil

@@ -11,6 +11,32 @@ import (
 	"github.com/justincremer/chimkin-bot/pkg/logger"
 )
 
+func HandleInfo(s *discordgo.Session, m *discordgo.Message, t0 time.Time) {
+	t1 := time.Now()
+	channel, err := s.Channel(m.ChannelID)
+	logger.Must("Unknown channel error: ", err)
+
+	title := "Info Panel"
+	channelName := channel.Name
+	message := "```txt\n%s\n%s\n%-16s%-20s\n%-16s%-20s\n%-16s%-20s```"
+	message = fmt.Sprintf(message, title, strings.Repeat("-", len(title)), "ChannelID", m.ChannelID, "Channel Name", channelName, "Uptime", (t1.Sub(t0).String()))
+	s.ChannelMessageSend(m.ChannelID, message)
+}
+
+func HandleHelp(s *discordgo.Session, m *discordgo.Message) {
+	title := "Help Panel"
+	message := "```txt\n%s\n%s\n%s```"
+
+	subMessage := strings.Repeat("%s :: %s\n", 3)
+	subMessage = fmt.Sprintf(subMessage,
+		"help  ", "List of commands",
+		"info  ", "How is chimkin",
+		"whois ", "Doxes the person who's name you provide [ sophie, justin, liana, sunny, angela, paul, joseph, siah, fluzz, kreiker]",
+	)
+	message = fmt.Sprintf(message, title, strings.Repeat("-", len(title)), subMessage)
+	s.ChannelMessageSend(m.ChannelID, message)
+}
+
 var messageTable = map[string][]string{
 	"sophie": {
 		"Toasty",
@@ -72,39 +98,14 @@ var messageTable = map[string][]string{
 	},
 }
 
-func HandleInfoCommand(s *discordgo.Session, m *discordgo.Message, t0 time.Time) {
-	t1 := time.Now()
-	channel, err := s.Channel(m.ChannelID)
-	logger.Must("Unknown channel error: ", err)
-
-	title := "Info Panel"
-	channelName := channel.Name
-	message := "```txt\n%s\n%s\n%-16s%-20s\n%-16s%-20s\n%-16s%-20s```"
-	message = fmt.Sprintf(message, title, strings.Repeat("-", len(title)), "ChannelID", m.ChannelID, "Channel Name", channelName, "Uptime", (t1.Sub(t0).String()))
-	s.ChannelMessageSend(m.ChannelID, message)
-}
-
-func HandleHelpCommand(s *discordgo.Session, m *discordgo.Message) {
-	title := "Help Panel"
-	message := "```txt\n%s\n%s\n%s```"
-
-	subMessage := strings.Repeat("%s :: %s\n", 3)
-	subMessage = fmt.Sprintf(subMessage,
-		"help  ", "List of commands",
-		"info  ", "How is chimkin",
-		"whois ", "Doxes the person who's name you provide [ sophie, justin, liana, sunny, angela, paul, joseph, siah, fluzz, kreiker]",
-	)
-	message = fmt.Sprintf(message, title, strings.Repeat("-", len(title)), subMessage)
-	s.ChannelMessageSend(m.ChannelID, message)
-}
-
 func HandlePesonalMessage(s *discordgo.Session, m *discordgo.Message, name string) {
 	messages := messageTable[name]
+	rand.Seed(time.Now().UnixNano())
 	i := rand.Intn(len(messages))
 	s.ChannelMessageSend(m.ChannelID, messages[i])
 }
 
-func HandleUnknownCommand(s *discordgo.Session, m *discordgo.Message, msg string) {
+func HandleUnknown(s *discordgo.Session, m *discordgo.Message, msg string) {
 	c, err := s.UserChannelCreate(m.Author.ID)
 	logger.Must("Unknown command error: ", err)
 	s.ChannelMessageSend(c.ID, "The command \""+msg+"\" in not recognized. Try running `!help` for a list of commands.")
