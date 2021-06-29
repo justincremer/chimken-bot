@@ -20,9 +20,20 @@ func New() *Bank {
 }
 
 func (b *Bank) CreateAccount(user string) (*Account, error) {
-	if b.UserTable[user] == false {
+	if b.getAccount(user) == nil {
 		b.UserTable[user] = true
 		return NewAccount(user), nil
 	}
 	return nil, fmt.Errorf("User %s already has an account.", user)
+}
+
+func (b *Bank) getAccount(user string) *Account {
+	if b.UserTable[user] {
+		for _, a := range b.Accounts {
+			if a.User == user {
+				return a
+			}
+		}
+	}
+	return nil
 }
