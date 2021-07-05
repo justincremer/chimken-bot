@@ -1,13 +1,12 @@
 package commands
 
 import (
-	"strconv"
-	"strings"
-	"time"
-
 	"fmt"
 	"github.com/bwmarrin/discordgo"
 	"github.com/justincremer/chimkin-bot/pkg/currency"
+	"strconv"
+	"strings"
+	"time"
 )
 
 func ExecuteCommand(s *discordgo.Session, m *discordgo.Message, t0 time.Time, bank *currency.Bank) {
