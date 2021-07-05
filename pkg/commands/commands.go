@@ -20,6 +20,11 @@ func ExecuteCommand(s *discordgo.Session, m *discordgo.Message, t0 time.Time, ba
 	case "help":
 		HandleHelp(s, m)
 	case "whois":
+		if len(args) != 2 {
+			HandleUnknown(s, m, full)
+			return
+		}
+
 		name := args[1]
 		switch name {
 		case "sophie":

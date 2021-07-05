@@ -62,9 +62,11 @@ var messageTable = map[string][]string{
 		"ᕕ(ᐛ)ᕗ",
 	},
 	"angela": {
+		"gabagooey",
 		"S tier troglodite",
 		"Squaters are people too",
 		"Not averse to bullying",
+		"Shut the fuck up about zoo tycoon",
 	},
 	"paul": {
 		"Paul is paulgers",
